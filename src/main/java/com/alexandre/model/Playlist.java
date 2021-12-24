@@ -1,30 +1,31 @@
 package com.alexandre.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@NoArgsConstructor
+@Entity
 @AllArgsConstructor
-
-
-@Table(name= "T_PLAYLIST")
-public class Playlist {
+@NoArgsConstructor
+@Table(name ="T_PLAYLIST")
+public class Playlist implements Serializable {
 
     @Id
-    private Long ID_MUSICAS;
+    @Column(name="ID_PLAYLIST")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idPlaylist;
     
-    @GeneratedValue(generator = "my_gen")
-    @SequenceGenerator(name = "my_gen", sequenceName = "my_seq_in_db")
-    private int SEQ_MUSICA;
+    @Column(name="MC_MUSIC")
+    private Long mcMusic;
 
-    
 }

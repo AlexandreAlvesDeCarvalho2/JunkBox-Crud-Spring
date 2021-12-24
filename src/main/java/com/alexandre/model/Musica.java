@@ -1,8 +1,11 @@
 package com.alexandre.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name= "T_MUSICA")
-public class Musica {
+public class Musica implements Serializable{
 
     @Id
     @Column(length = 38, nullable = false)
@@ -28,7 +31,6 @@ public class Musica {
 
 	@Column(length = 100, nullable = false)
     private String NM_ARTISTA;
-	  
 
     
 }
