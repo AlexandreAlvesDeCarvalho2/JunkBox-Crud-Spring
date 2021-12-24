@@ -22,22 +22,24 @@ import lombok.AllArgsConstructor;
 public class MusicController {
 
     private final MusicaRepository musicaRepository;
+
     @GetMapping("/api/Musica")
-    public List<Musica> getAllMusicas(){
+    public List<Musica> getAllMusicas() {
         return musicaRepository.findAll();
     }
 
     @GetMapping("/api/Musica/{id}")
-	public Optional<Musica> getMusicaById(@PathVariable Long id) {
-		return  musicaRepository.findById(id);
+    public Optional<Musica> getMusicaById(@PathVariable Long id) {
+        return musicaRepository.findById(id);
     }
-    
+
     @DeleteMapping("/api/Musica/{id}")
-        public void deleteMusica(@PathVariable Long id){
-            musicaRepository.deleteById(id);
-        }
-        @PostMapping("/api/Musica")
-        public Musica saveMusica(@RequestBody Musica musica) {
-            return musicaRepository.save(musica);    
-        }
+    public void deleteMusica(@PathVariable Long id) {
+        musicaRepository.deleteById(id);
+    }
+
+    @PostMapping("/api/Musica")
+    public Musica saveMusica(@RequestBody Musica musica) {
+        return musicaRepository.save(musica);
+    }
 }
